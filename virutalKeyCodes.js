@@ -1,20 +1,4 @@
-export type KeyCombination = {
-    meta?: boolean,
-    shift?: boolean,
-    ctrl?: boolean,
-    alt?: boolean,
-    keyCode: string
-}
-
-export function addListener(keyCombination: KeyCombination, listener: () => void): number
-
-export function removeListener(id: number): void
-
-export function startListening(): void
-
-export function stopListening(): void
-
-export const V_KEY_CODE : {
+export const V_KEY_CODE = {
     LBUTTON: 0x01,
     RBUTTON: 0x02,
     CANCEL: 0x03,
@@ -210,4 +194,4 @@ export const V_KEY_CODE : {
     NONAME: 0xFC,
     PA1: 0xFD,
     OEM_CLEAR: 0xFE
-}
+};

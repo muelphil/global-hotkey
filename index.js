@@ -1,5 +1,5 @@
-var hotkey_listener = require('./build/Release/hotkey_listener.node');
-
+const hotkey_listener = require('./build/Release/hotkey_listener.node');
+const V_KEY_CODE = require('./virutalKeyCodes')
 
 const listeners = {};
 
@@ -48,4 +48,4 @@ function stopListening() {
     hotkey_listener.stopThread();
 }
 
-module.exports = {startListening, stopListening, addListener, removeListener};
+module.exports = {startListening, stopListening, addListener, removeListener, V_KEY_CODE};

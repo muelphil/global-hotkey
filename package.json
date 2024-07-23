@@ -1,6 +1,6 @@
 {
-  "name": "@philipmueller/global-hotkey",
-  "private": true,
+  "name": "@muelphil/global-hotkey",
+  "restricted": true,
   "version": "0.0.1",
   "author": {
     "name": "Philip Müller",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/muelphil/global-hotkey"
+    "url": "git+https://github.com/muelphil/global-hotkey.git"
   },
   "keywords": [],
   "license": "MIT",
