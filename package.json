@@ -1,0 +1,41 @@
+{
+  "name": "@philipmueller/globalhotkey",
+  "version": "0.0.1",
+  "description": "Native Windows Global Shortcut Detection",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "build": "node-gyp configure build",
+    "test": "run-script-os",
+    "test:darwin:linux": "jasmine test/**/*.js",
+    "test-keyboard": "node test/keyboard.js",
+    "test:win32": "jasmine test/**/*.js",
+    "install": "prebuild-install || node-gyp rebuild",
+    "install-debug": "prebuild-install || node-gyp rebuild --debug",
+    "prebuild": "prebuild --all"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "license": "MIT",
+  "gypfile": true,
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "napi-thread-safe-callback": "0.0.6",
+    "node-addon-api": "^3.1.0",
+    "prebuild-install": "^5.3.3"
+  },
+  "devDependencies": {
+    "tape": "^4.8.0",
+    "jasmine": "^2.99.0",
+    "prebuild": "^9.1.1",
+    "run-script-os": "^1.0.3",
+    "targetpractice": "0.0.7",
+    "node-gyp": "^10.0.1"
+  }
+}
