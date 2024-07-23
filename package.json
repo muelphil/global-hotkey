@@ -1,7 +1,7 @@
 {
   "name": "@philipmueller/globalhotkey",
   "version": "0.0.1",
-  "description": "Native Windows Global Shortcut Detection",
+  "description": "Native Windows Global Shortcut Detection for Node",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
