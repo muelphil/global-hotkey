@@ -1,25 +1,33 @@
-const addon = require('.');
+const globalHotkey = require('.');
 
-addon.addListener({
+const listenerId = globalHotkey.addListener({
     ctrl: false,
     meta: true,
     alt: false,
     shift: false,
-    keyCode: addon.V_KEY_CODE.V
+    keyCode: globalHotkey.V_KEY_CODES.V
 }, () => console.log('Hello from META + V'))
-addon.addListener({
+globalHotkey.addListener({
     ctrl: false,
-    meta: true,
+    meta: false,
+    alt: true,
+    shift: false,
+    keyCode: globalHotkey.V_KEY_CODES.SPACE
+}, () => console.log('Hello from ALT + SPACE'))
+
+globalHotkey.addListener({
+    ctrl: true,
+    meta: false,
     alt: false,
-    shift: true,
-    keyCode: 'Q'
-}, () => console.log('Hello from META + Shift + Q'))
-// addon.removeListener(27);
+    shift: false,
+    keyCode: globalHotkey.V_KEY_CODES.C
+}, () => console.log('Hello from CTRL + V'))
+globalHotkey.removeListener(listenerId);
 
 console.log('Starting thread...');
-addon.startListening();
+globalHotkey.startListening();
 
 setTimeout(() => {
     console.log('Stopping thread...');
-    addon.stopListening();
+    globalHotkey.stopListening();
 }, 20000); // Stop after 20 seconds
