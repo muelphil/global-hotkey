@@ -71,28 +71,20 @@ const globalHotkey = require('global-hotkey');
 
 // Add a listener for META + V
 const listenerId = globalHotkey.addListener({
-    ctrl: false,
     meta: true,
-    alt: false,
-    shift: false,
     keyCode: globalHotkey.V_KEY_CODES.V
 }, () => console.log('Hello from META + V'));
 
 // Add a listener for ALT + SPACE
 globalHotkey.addListener({
-    ctrl: false,
-    meta: false,
     alt: true,
-    shift: false,
     keyCode: globalHotkey.V_KEY_CODES.SPACE
 }, () => console.log('Hello from ALT + SPACE'));
 
-// Add a listener for CTRL + C
+// Add a listener for CTRL + SHIFT + C
 globalHotkey.addListener({
     ctrl: true,
-    meta: false,
-    alt: false,
-    shift: false,
+    shift: true,
     keyCode: globalHotkey.V_KEY_CODES.C
 }, () => console.log('Hello from CTRL + C'));
 
