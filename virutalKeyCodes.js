@@ -1,4 +1,5 @@
-export const V_KEY_CODE = {
+// https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
+const V_KEY_CODES = {
     LBUTTON: 0x01,
     RBUTTON: 0x02,
     CANCEL: 0x03,
@@ -194,4 +195,5 @@ export const V_KEY_CODE = {
     NONAME: 0xFC,
     PA1: 0xFD,
     OEM_CLEAR: 0xFE
-};
+}
+module.exports = V_KEY_CODES;
