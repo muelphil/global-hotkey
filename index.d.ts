@@ -3,7 +3,7 @@ export type KeyCombination = {
     shift?: boolean,
     ctrl?: boolean,
     alt?: boolean,
-    keyCode: string
+    keyCode: number
 }
 
 export function addListener(keyCombination: KeyCombination, listener: () => void): number
