@@ -1,4 +1,4 @@
-export const KEYBOARD_EVENT_CODE_TO_VKEY = {
+const KEYBOARD_EVENT_CODE_TO_VKEY = {
     "LButton": 0x01,
     "RButton": 0x02,
     "Cancel": 0x03,
@@ -147,3 +147,4 @@ export const KEYBOARD_EVENT_CODE_TO_VKEY = {
     "ControlRight": 0xA3,
     "ShiftRight": 0xA1
 };
+module.exports = KEYBOARD_EVENT_CODE_TO_VKEY;
