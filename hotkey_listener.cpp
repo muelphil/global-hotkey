@@ -184,6 +184,15 @@ void removeListener(const Napi::CallbackInfo& info) {
 }
 
 /**
+ * Removes all event listener.
+ *
+ * @param info Napi::CallbackInfo object.
+ */
+void removeAllListeners(const Napi::CallbackInfo& info) {
+    keyEventVec.clear();
+}
+
+/**
  * Stops the keyboard hook thread and releases resources.
  *
  * @param info Napi::CallbackInfo object.
@@ -207,6 +216,7 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
     exports.Set(Napi::String::New(env, "startThread"), Napi::Function::New(env, StartThread));
     exports.Set(Napi::String::New(env, "stopThread"), Napi::Function::New(env, StopThread));
     exports.Set(Napi::String::New(env, "removeListener"), Napi::Function::New(env, removeListener));
+    exports.Set(Napi::String::New(env, "removeAllListeners"), Napi::Function::New(env, removeAllListeners));
     exports.Set(Napi::String::New(env, "addListener"), Napi::Function::New(env, addListener));
     return exports;
 }

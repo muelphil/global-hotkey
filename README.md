@@ -1,6 +1,7 @@
 # `global-hotkey`
 
-`global-hotkey` is a Node.js module that allows you to register and handle global hotkeys on Windows. This module provides functionality to listen for key combinations and execute specified callbacks when the keys are pressed.
+`global-hotkey` is a Node.js module that allows you to register and handle global hotkeys on Windows. This module provides functionality to listen for key combinations and execute
+specified callbacks when the keys are pressed.
 
 ## Installation
 
@@ -54,6 +55,10 @@ Returns a unique listener ID which can be used to remove the listener.
 
 Removes the specified listener.
 
+### `globalHotkey.removeAllListeners()`
+
+Removes all event listener.
+
 ### `globalHotkey.startListening()`
 
 Starts the internal thread to listen for key events. Must be called to begin processing hotkey events.
@@ -61,6 +66,10 @@ Starts the internal thread to listen for key events. Must be called to begin pro
 ### `globalHotkey.stopListening()`
 
 Stops the internal thread from listening for key events and cleans up resources.
+
+## Note
+
+The event listeners do not have to be all set before starting to listen, but to avoid any issues it might be smart to stop listening while setting new hotkey listeners.
 
 ## Test
 
@@ -100,6 +109,25 @@ setTimeout(() => {
     globalHotkey.stopListening();
 }, 20000);
 ```
+
+## KeyCodes
+
+For valid key codes you can consult [the Microsoft Documentation on Virtual Key Codes](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes). This module
+provides a typed constant object `V_KEY_CODES` for easy access to the key codes based on their names as stated in the Microsoft documentation. For example:
+
+```js
+V_KEY_CODES.SPACE
+```
+
+Additionally this module provides `KEYBOARD_EVENT_CODE_TO_VKEY`, an object mapping the codes you will find
+as [the code property of KeyboardEvents](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code). This will be helpful if you want to register hotkeys that were
+specified by the user by means of a Keyboard Input. For Example:
+
+```js
+KEYBOARD_EVENT_CODE_TO_VKEY['Space']
+```
+
+For the KeyboardEvent codes of specific keys, you can, for example, consult [this website](https://www.toptal.com/developers/keycode).
 
 ## Issues
 

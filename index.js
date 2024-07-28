@@ -4,8 +4,9 @@
 
 const hotkey_listener = require('./build/Release/hotkey_listener.node');
 const V_KEY_CODES = require('./virutalKeyCodes');
+const KEYBOARD_EVENT_CODE_TO_VKEY = require('./keyboardEventCodeToVirtualKeyCode');
 
-const listeners = {};
+let listeners = {};
 let id = 1;
 
 /**
@@ -62,6 +63,11 @@ function removeListener(id) {
     }
 }
 
+function removeAllListeners() {
+    hotkey_listener.removeAllListeners(id);
+    listeners = {};
+}
+
 /**
  * Starts listening for global hotkey events.
  */
@@ -76,4 +82,4 @@ function stopListening() {
     hotkey_listener.stopThread();
 }
 
-module.exports = {startListening, stopListening, addListener, removeListener, V_KEY_CODES};
+module.exports = {startListening, stopListening, addListener, removeListener, removeAllListeners, V_KEY_CODES, KEYBOARD_EVENT_CODE_TO_VKEY};
