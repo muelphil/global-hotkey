@@ -1,4 +1,5 @@
 const globalHotkey = require('.');
+const {resetKeyPressed} = require("./index");
 
 const listenerId = globalHotkey.addListener({
     ctrl: false,
@@ -7,6 +8,8 @@ const listenerId = globalHotkey.addListener({
     shift: false,
     keyCode: globalHotkey.V_KEY_CODES.V
 }, () => console.log('Hello from META + V'))
+globalHotkey.removeListener(listenerId);
+
 globalHotkey.addListener({
     ctrl: false,
     meta: false,
@@ -22,12 +25,12 @@ globalHotkey.addListener({
     shift: false,
     keyCode: globalHotkey.V_KEY_CODES.C
 }, () => console.log('Hello from CTRL + V'))
-globalHotkey.removeListener(listenerId);
 
 console.log('Starting thread...');
 globalHotkey.startListening();
+globalHotkey.resetKeyPressed();
 
 setTimeout(() => {
     console.log('Stopping thread...');
     globalHotkey.stopListening();
-}, 20000); // Stop after 20 seconds
+}, 5000); // Stop after 20 seconds

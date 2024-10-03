@@ -16,6 +16,8 @@ export function startListening(): void
 
 export function stopListening(): void
 
+export function resetKeyPressed():  void
+
 export const V_KEY_CODES : {
     LBUTTON: 0x01,
     RBUTTON: 0x02,

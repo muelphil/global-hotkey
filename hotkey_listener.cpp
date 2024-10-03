@@ -30,6 +30,13 @@ bool isAltPressed = false;
 bool isShiftPressed = false;
 bool isControlPressed = false;
 
+void resetKeyPressed(const Napi::CallbackInfo& info){
+    isSuperKeyPressed = false;
+    isAltPressed = false;
+    isShiftPressed = false;
+    isControlPressed = false;
+}
+
 /**
  * Low-level keyboard hook callback function.
  *
@@ -218,6 +225,7 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
     exports.Set(Napi::String::New(env, "removeListener"), Napi::Function::New(env, removeListener));
     exports.Set(Napi::String::New(env, "removeAllListeners"), Napi::Function::New(env, removeAllListeners));
     exports.Set(Napi::String::New(env, "addListener"), Napi::Function::New(env, addListener));
+    exports.Set(Napi::String::New(env, "resetKeyPressed"), Napi::Function::New(env, resetKeyPressed));
     return exports;
 }
 

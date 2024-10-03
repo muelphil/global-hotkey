@@ -82,4 +82,4 @@ function stopListening() {
     hotkey_listener.stopThread();
 }
 
-module.exports = {startListening, stopListening, addListener, removeListener, removeAllListeners, V_KEY_CODES, KEYBOARD_EVENT_CODE_TO_VKEY};
+module.exports = {startListening, stopListening, addListener, removeListener, removeAllListeners, V_KEY_CODES, KEYBOARD_EVENT_CODE_TO_VKEY, resetKeyPressed: hotkey_listener.resetKeyPressed};
