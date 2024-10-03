@@ -1,7 +1,7 @@
 # `global-hotkey`
 
 `global-hotkey` is a Node.js module that allows you to register and handle global hotkeys on Windows. This module provides functionality to listen for key combinations and execute
-specified callbacks when the keys are pressed.
+specified callbacks when the keys are pressed. This package allows to listen and override Windows specific hotkeys like Win+Space.
 
 ## Installation
 
@@ -20,6 +20,8 @@ electron-rebuild
 ```
 
 ## Usage
+
+**IMPORTANT NOTE:** This package will produce a bug when you lock the screen using Win+L. This will make the Win key stuck and every keyboard input after unlocking the screen will act like Win is pressed. To solve this, use the resetKeyPressed function and call it when the user logs out. To do so, use the [Electron powerMonitor](https://www.electronjs.org/de/docs/latest/api/power-monitor) callbacks.
 
 Here’s a basic example of how to use `global-hotkey` in your Node.js application:
 
